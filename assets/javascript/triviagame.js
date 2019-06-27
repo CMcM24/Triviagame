@@ -23,6 +23,8 @@ var questions = [q1, q2, q3, q4, q5, restartQ];
 
 var correctCounter=0;
 
+var questionCount=0;
+
 function gameplay(){
 
 for(i=0; i<questions.length; i++){
@@ -40,21 +42,31 @@ function rightWrong(){
         if(idCheck == "correct"){
             console.log("Correct!");
             correctCounter++;
+            questionCount++;
             console.log(correctCounter)
-            $("#question").replaceWith(questions[0 + correctCounter]);
+            $("#question").replaceWith(questions[0 + questionCount]);
         }
         else if(idCheck !== "correct"){
             console.log("WRONG.");
+            questionCount++;
+            $("#question").replaceWith(questions[0 + questionCount]);
+            
         }
         
-        if(correctCounter == 5){
+        if(correctCounter == 5 && questionCount == 5){
             winCondition();
             $("#restartbutton").show();
-
+        }
+        else if(questionCount == 5 && correctCounter < 5){
+            endGame();
+            $("#restartbutton").show();
         }
 }
 function winCondition(){
     alert("You got 5/5!")
+}
+function endGame(){
+    alert("You got " + correctCounter + "/5 right.")
 }
 
 $(document).on("click", ".abcd", rightWrong);
@@ -71,6 +83,7 @@ $(document).on("click", ".abcd", rightWrong);
 
 $("#restartbutton").click(function(){
     correctCounter = 0;
+    questionCount = 0;
     gameplay();
 })
 
