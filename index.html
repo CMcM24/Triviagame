@@ -8,21 +8,22 @@
   
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="">
+  <link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
 
 </head>
 <body>
 
 
-    <div class="conatiner">
-        <div class="row justify-content-center"  style="border:solid">
+    <div class="conatiner backdrop">
+        <div class="row justify-content-center">
             <div class="col-lg-10 justify-content-center">
                 <h1>Star Wars Trivia Game!!!</h1>
 
         
         <div class="row justify-content-center" id="question">
             <div class="col-lg-10 justify-content-center">
-                <h2>Hit Start to begin the Quiz!</h2>
+                <h2 class="starfont">Hit Start to begin the Quiz!</h2>
                 <button id="beginQuiz">Start</button>
             </div>
         </div>
@@ -34,9 +35,14 @@
         
     </div>
     <div class="row justify-content-center">
-        <div id="show-number"></div>
+        <div id="show-number" class="starfont"></div>
         <div class="col-lg-10 justify-content-center" id="nextbutton"><button>Next</button></div>
         <div class="col-lg-10 justify-content-center" id="restartbutton"><button>Restart</button></div>
+
+        <div><audio controls autoplay class="vid img-fluid">
+                <source src="./assets/audio/dunesea.mp3" type="audio/mp3">
+            </audio></div>
+
     </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

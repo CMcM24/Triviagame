@@ -1,11 +1,4 @@
 
-
-//I need to define the default state of the game (hide all questions, except question #1)
-
-
-
-
-
     
 var q1= '<div class="row justify-content-center" id="question"><div class="col-lg-10 justify-content-center"><div><h6 id>Q1: What planet is Luke Skywalker from?</h6><br><p id="q1a" class="abcd">A: Alderaan</p><p id="correct" class="abcd">B: Tatooine</p><p id="q1c" class="abcd">C: Coruscant</p><p id="q1d" class="abcd">D: Kashyyyk</p></div></div></div>';
 
@@ -17,7 +10,7 @@ var q4= '<div class="row justify-content-center" id="question"><div class="col-l
 
 var q5= '<div class="row justify-content-center" id="question"><div class="col-lg-10 justify-content-center"><div><h6 id>Q5: Was the Darth Vader hallway scene from Rogue One the dopest scene in any Star Wars movie?</h6><br><p id="correct" class="abcd">A: Yes.</p><p id="q5b" class="abcd">B: No?</p><p id="q5c" class="abcd">C: No?</p><p id="q5d" class="abcd">D: No?</p></div></div></div>';
 
-var restartQ = '<div class="row justify-content-center" id="question"><div class="col-lg-10 justify-content-center"><h2>Hit Restart to play again!</h2></div></div>';
+var restartQ = '<div class="row justify-content-center" id="question"><div class="col-lg-10 justify-content-center starfont"><h2>Hit Restart to play again!</h2></div></div>';
 
 var questions = [q1, q2, q3, q4, q5, restartQ];
 
@@ -114,26 +107,23 @@ $(document).on("click", ".abcd", rightWrong);
 
 
 
-
-//I need to create the gameplay function, go from question to question, and add timers for questions
-
-
-
-//I need to create a correct/wrong function, put correct answers into an array, and lose the game if wrong
-
-
 $("#restartbutton").click(function(){
     correctCounter = 0;
     questionCount = 0;
     gameplay();
 })
 
+var pew = "../audio/blaster-firing.mp3"
 
+function blaster(){
+    pew.play();
+}
 
 
 $("#nextbutton").hide();
 $("#restartbutton").hide();
 
+$(document).on("click", blaster);
 $(document).on("click", "#beginQuiz", gameplay);
 
 

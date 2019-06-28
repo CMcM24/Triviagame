@@ -1,0 +1,34 @@
+h1{
+    color: gold;
+    font-family: 'Rubik Mono One', sans-serif;
+    text-decoration: underline;
+}
+
+p{
+    color: gold;
+    font-size: 24px;
+    font-family: 'Rubik Mono One', sans-serif;
+}
+
+h6{
+    color: gold;
+    font-size: 30px;
+    font-family: 'Rubik Mono One', sans-serif;
+}
+
+.starfont{
+    color: gold;
+    font-family: 'Rubik Mono One', sans-serif;
+}
+
+body{
+    background-image: url(../images/stars.jpg);
+}
+button{
+    color: gold;
+    background-image: url(../images/stars.jpg);
+}
+.player{
+    color: gold;
+    background-image: url(../images/stars.jpg
+}
