@@ -25,14 +25,22 @@ var correctCounter=0;
 
 var questionCount=0;
 
+var qTimer = 15;
+
+var answerTimer = 10;
+
+var intervalID1;
+
+var intervalID2;
+
 function gameplay(){
 
 for(i=0; i<questions.length; i++){
+    $("#restartbutton").hide();
     currentQ = questions[0];
     $("#question").replaceWith(currentQ);
-
+    roundTimer();
     }
- 
 }
 
 function rightWrong(){
@@ -45,11 +53,13 @@ function rightWrong(){
             questionCount++;
             console.log(correctCounter)
             $("#question").replaceWith(questions[0 + questionCount]);
+            roundTimer();
         }
         else if(idCheck !== "correct"){
             console.log("WRONG.");
             questionCount++;
             $("#question").replaceWith(questions[0 + questionCount]);
+            roundTimer();
             
         }
         
@@ -62,10 +72,41 @@ function rightWrong(){
             $("#restartbutton").show();
         }
 }
+
+
+function roundTimer(){
+    qTimer = 15;
+    clearInterval(intervalID1);
+    intervalID1 = setInterval(decrement, 1000);
+}
+
+function decrement() {
+
+    qTimer--;
+    $("#show-number").html("<h2>" + qTimer + "</h2>");
+
+    if (qTimer === 0 && questionCount < 5) {
+      stop();
+      alert("Time Up!");
+      console.log("WRONG.");
+      questionCount++;
+      $("#question").replaceWith(questions[0 + questionCount]);
+      roundTimer();
+    }
+    else if(qTimer === 0 && questionCount == 5){
+        clearInterval(intervalID1);
+        endGame();
+        $("#restartbutton").show();
+    }
+  }
+
+
 function winCondition(){
+    clearInterval(intervalID1);
     alert("You got 5/5!")
 }
 function endGame(){
+    clearInterval(intervalID1);
     alert("You got " + correctCounter + "/5 right.")
 }
 
